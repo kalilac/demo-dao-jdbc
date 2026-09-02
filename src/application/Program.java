@@ -42,9 +42,13 @@ public class Program {
 		sellerdao.insert(newSeller);
 		System.out.println("Insertd! New id = " + newSeller.getId());
 
+		System.out.println("\n=== TEST 4: seller update	 ====");
+		seller = sellerdao.findById(1);
+		seller.setName("Martha Waine");
+		sellerdao.update(seller);
+		System.out.println("Update complited: " + seller);
 		
-
-
+		
 
 
 	}
