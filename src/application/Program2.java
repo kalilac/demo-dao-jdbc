@@ -23,6 +23,17 @@ public class Program2 {
 			
 			System.out.println(obj);
 		}
+		
+		System.out.println("\n=== TEST 3: seller insett ====");
+		Department newDep = new Department(8, "New Books");
+		depDao.insert(newDep);
+		list = depDao.findAll();
+		
+		for (Department obj : list) {
+			
+			System.out.println(obj);
+		}
+		
 
 	}
 
