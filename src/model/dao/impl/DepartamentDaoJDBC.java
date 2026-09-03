@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,8 +32,7 @@ public class DepartamentDaoJDBC implements DepartamentDao {
 					"INSERT INTO department "
 					+ "(Id, Name) "
 					+ "VALUES "
-					+ "(?, ?)", 
-					Statement.RETURN_GENERATED_KEYS);
+					+ "(?, ?)");
 			
 			st.setInt(1, obj.getId());
 			st.setString(2, obj.getName());
@@ -54,8 +52,29 @@ public class DepartamentDaoJDBC implements DepartamentDao {
 
 	@Override
 	public void update(Department obj) {
-		// TODO Auto-generated method stub
 		
+		PreparedStatement st = null;
+		
+		try {
+			
+			st = conn.prepareStatement(
+								"UPDATE department "
+								+ "SET Name = ? "
+								+ "WHERE Id = ?");
+			
+			st.setString(1, obj.getName());
+			st.setInt(2, obj.getId());
+			st.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			throw new DbException(e.getMessage());
+			
+		} finally {
+			
+			DB.closeStatement(st);
+			
+		}
 	}
 
 	@Override

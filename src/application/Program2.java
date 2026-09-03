@@ -24,7 +24,7 @@ public class Program2 {
 			System.out.println(obj);
 		}
 		
-		System.out.println("\n=== TEST 3: seller insett ====");
+		/*System.out.println("\n=== TEST 3: seller insett ====");
 		Department newDep = new Department(8, "New Books");
 		depDao.insert(newDep);
 		list = depDao.findAll();
@@ -33,7 +33,13 @@ public class Program2 {
 			
 			System.out.println(obj);
 		}
+		*/
+		System.out.println("\n=== TEST 4: seller update ====");
+		dep.setId(8);
+		dep.setName("Old books");
+		depDao.update(dep);
 		
+
 
 	}
 
