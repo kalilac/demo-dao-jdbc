@@ -33,12 +33,15 @@ public class Program2 {
 			
 			System.out.println(obj);
 		}
-		*/
+		
 		System.out.println("\n=== TEST 4: seller update ====");
 		dep.setId(8);
 		dep.setName("Old books");
 		depDao.update(dep);
-		
+		*/
+		System.out.println("\n=== TEST 5: seller delete ====");
+		depDao.deleteById(5);
+
 
 
 	}
